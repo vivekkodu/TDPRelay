@@ -1,0 +1,12 @@
+{
+  "name": "tcpserver",
+  "description": "TCP SERVER",
+  "version": "0.0.1",
+  "dependencies": {
+    "node-uuid": "^1.4.7",
+	"lab":"11.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": "vivek"
+}
