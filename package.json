@@ -3,10 +3,16 @@
   "description": "TCP SERVER",
   "version": "0.0.1",
   "dependencies": {
-    "node-uuid": "^1.4.7",
-	"lab":"11.2.1"
+    "async": "^2.1.4",
+    "node-uuid": "^1.4.7"
   },
-  "devDependencies": {},
-  "scripts": {},
+  "devDependencies": {
+    "code": "^4.0.0",
+    "console-mock": "^1.0.24",
+    "lab": "^11.2.1"
+  },
+  "scripts": {
+    "test": "lab -m 5000 -t 60 -v -a code"
+  },
   "author": "vivek"
 }

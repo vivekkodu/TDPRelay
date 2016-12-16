@@ -7,7 +7,7 @@ const Sockets = {};
 let numConnections = 0;
 
 const Server = Net.createServer((clientSocket) => {
-	numConnections += 1;
+  numConnections += 1;
   if(numConnections >= 3) {
     console.log('Closing client. No more new connections allowed');
     return clientSocket.destroy();
@@ -16,6 +16,7 @@ const Server = Net.createServer((clientSocket) => {
   clientSocket.id = Uuid.v4();
   Sockets[clientSocket.id] = clientSocket;
 
+  console.info('Client connected');
   clientSocket.on('data', (chunks) => {
     //console.log(`Data received : ${chunks}`);
     //this chunks need to relay, when number of connection is 2
@@ -30,7 +31,7 @@ const Server = Net.createServer((clientSocket) => {
       }
 
       Sockets[s2].write(chunks);
-    }
+    }	
   });
 
   clientSocket.on('close', () => {
@@ -39,8 +40,12 @@ const Server = Net.createServer((clientSocket) => {
   });
 });
 
+Server.on('error', (err) => {
+	console.info(err);
+});
+
 Server.listen(1337, '127.0.0.1', () => {
-  console.log('Server is listening on port 1337');
+  console.info('Server is listening on port 1337');
 });
 
 process.on('uncaughtException', (err) => {
