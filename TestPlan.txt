@@ -1,0 +1,18 @@
+Server tests:
+	It is rejecting 3rd connection
+	It is opening port
+	It is accepting first 2 connections
+	It is closing properly
+	Able to close connections to it
+	
+	
+	
+Client:
+	It is able to connect
+	It is able to receive
+	It is able to send
+	It is able to close properly
+	When there is no server available
+	
+Extra cases:
+	Connection timeouts
